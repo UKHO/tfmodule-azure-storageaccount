@@ -1,5 +1,6 @@
 provider "azurerm" {
   alias = "src"
+  features {}
 }
 
 locals {
@@ -22,4 +23,10 @@ resource "azurerm_storage_account" "logstashStorage" {
       tags
     ]
   }
+}
+
+resource "azurerm_storage_account_network_rules" "rules" {
+  storage_account_id = azurerm_storage_account.logstashStorage.id
+  default_action = "Deny"
+  virtual_network_subnet_ids = var.subnet_ids
 }

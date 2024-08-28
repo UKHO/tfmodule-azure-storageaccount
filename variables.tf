@@ -28,3 +28,6 @@ variable "access_tier" {
 variable "enable_https_traffic_only" {
   type = bool
 }
+variable "subnet_ids" {
+  type = list(string)
+}
