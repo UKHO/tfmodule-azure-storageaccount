@@ -25,9 +25,12 @@ variable "account_replication_type" {
 variable "access_tier" {
   type = string
 }
-variable "enable_https_traffic_only" {
+variable "https_traffic_only_enabled" {
   type = bool
 }
 variable "subnet_ids" {
   type = list(string)
+}
+variable "subscription_id" {
+  type = string
 }
