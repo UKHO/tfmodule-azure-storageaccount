@@ -7,7 +7,7 @@ provider "azurerm" {
 }
 
 locals {
-  basename = lower("m${var.servicename}${var.role}${var.deploy_environment}")
+  basename = lower("m${var.servicename}${var.deploy_environment}sa")
 }
 
 resource "azurerm_storage_account" "sa" {
