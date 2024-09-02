@@ -25,6 +25,10 @@ variable "access_tier" {
 variable "https_traffic_only_enabled" {
   type = bool
 }
+variable "min_tls_version" {
+  type = string
+  default = "TLS1_2"
+}
 variable "subnet_ids" {
   type = list(string)
 }

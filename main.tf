@@ -19,6 +19,7 @@ resource "azurerm_storage_account" "sa" {
   account_tier               = var.account_tier
   account_replication_type   = var.account_replication_type
   access_tier                = var.access_tier
+  min_tls_version            = var.min_tls_version
   https_traffic_only_enabled = var.https_traffic_only_enabled
 
   lifecycle {
@@ -32,4 +33,5 @@ resource "azurerm_storage_account_network_rules" "rules" {
   storage_account_id         = azurerm_storage_account.sa.id
   default_action             = "Deny"
   virtual_network_subnet_ids = var.subnet_ids
+  bypass                     = ["AzureServices"]
 }
