@@ -1,13 +1,16 @@
-provider "azurerm" {
-  alias           = "src"
-  subscription_id = var.subscription_id
-  features {
-
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      configuration_aliases = [
+        azurerm.src
+      ]
+    }
   }
 }
 
 locals {
-  basename = lower("m${var.servicename}${var.deploy_environment}sa")
+  basename = lower("m${var.servicename}${var.role}${var.deploy_environment}sa")
 }
 
 resource "azurerm_storage_account" "sa" {
@@ -34,4 +37,5 @@ resource "azurerm_storage_account_network_rules" "rules" {
   default_action             = "Deny"
   virtual_network_subnet_ids = var.subnet_ids
   bypass                     = ["AzureServices"]
+  ip_rules = [var.allowed_ips]
 }

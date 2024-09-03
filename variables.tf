@@ -1,6 +1,9 @@
 variable "servicename" {
   type = string
 }
+variable "role" {
+  type = string
+}
 variable "deploy_environment" {
   type = string
 }
@@ -34,4 +37,7 @@ variable "subnet_ids" {
 }
 variable "subscription_id" {
   type = string
+}
+variable "allowed_ips" {
+  type = list(string)
 }
