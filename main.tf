@@ -9,6 +9,10 @@ terraform {
   }
 }
 
+provider "azurerm" {
+  features {}
+}
+
 locals {
   basename = lower("m${var.servicename}${var.role}${var.deploy_environment}sa")
 }
