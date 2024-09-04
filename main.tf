@@ -33,6 +33,7 @@ resource "azurerm_storage_account" "sa" {
 }
 
 resource "azurerm_storage_account_network_rules" "rules" {
+  provider                   = azurerm.src
   storage_account_id         = azurerm_storage_account.sa.id
   default_action             = "Deny"
   virtual_network_subnet_ids = var.subnet_ids
