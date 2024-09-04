@@ -39,4 +39,10 @@ resource "azurerm_storage_account_network_rules" "rules" {
   virtual_network_subnet_ids = var.subnet_ids
   bypass                     = ["AzureServices"]
   ip_rules                   = var.allowed_ips
+  lifecycle {
+    precondition {
+      condition     = length(var.subnet_ids) + length(var.allowed_ips) != 0
+      error_message = "Using this module requires the subnet_ids or the allowed_ips array to contain at least one value."
+    }
+  }
 }

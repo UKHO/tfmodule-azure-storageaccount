@@ -34,10 +34,12 @@ variable "min_tls_version" {
 }
 variable "subnet_ids" {
   type = list(string)
+   default = []
 }
 variable "subscription_id" {
   type = string
 }
 variable "allowed_ips" {
   type = list(string)
+  default = []
 }
