@@ -1,6 +1,6 @@
 # Terraform Module: for Storage account with restricted public access
 
-This module can be used to create a storage account that is configured to restrict public 
+This module can be used to create a storage account that is configured to restrict public access.
 
 ## Required Resources
 
