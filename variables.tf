@@ -50,7 +50,7 @@ variable "min_tls_version" {
 variable "subnet_ids" {
   type    = list(string)
   default = []
-  description = "A list of subnet resource ids, pass things like the AzDoPrd-vnet subnet reource id, can be 0 or many but atleast one subnet or ip must be set"
+  description = "A list of subnet resource ids, can be 0 or many but atleast one subnet or ip must be set"
 }
 variable "allowed_ips" {
   type    = list(string)
